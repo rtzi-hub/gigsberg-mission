@@ -1,4 +1,4 @@
-# 🚀 Gigsberg Mission – DevOps Showcase
+# Gigsberg Mission – DevOps Showcase
 
 This project demonstrates full-cycle DevOps practices using **Terraform**, **EKS**, **Helm**, **Kubernetes**, **Docker**, **Fluent Bit**, **Elasticsearch**, and **Kibana**.  
 It deploys a containerized Node.js application to AWS EKS with observability and logging infrastructure.
