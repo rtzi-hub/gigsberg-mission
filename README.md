@@ -1,8 +1,23 @@
 # 🚀 Gigsberg Mission – DevOps Showcase
 
-This project demonstrates full-cycle DevOps practices using **Terraform**, **EKS**, **Helm**, **Kubernetes**, **Docker**, **Fluent Bit**, **Elasticsearch**, and **Kibana**. It deploys a containerized Node.js application to AWS EKS with observability and logging infrastructure.
+This project demonstrates full-cycle DevOps practices using **Terraform**, **EKS**, **Helm**, **Kubernetes**, **Docker**, **Fluent Bit**, **Elasticsearch**, and **Kibana**.  
+It deploys a containerized Node.js application to AWS EKS with observability and logging infrastructure.
 
-Last Updated: March 24, 2025
+The **Terraform infrastructure is configured with two Availability Zones (AZs)** to ensure high availability and fault tolerance.  
+For production-level robustness, we are using `t3.large` EC2 instances to support resource-heavy components like Elasticsearch.
+
+**Recommendation:**  
+For development and testing stages, it's more cost-effective to reduce the deployment to **a single Availability Zone** and use smaller instances such as `t3.medium`.  
+This helps lower costs while maintaining a functional environment for validation and experimentation.
+
+Once deployed, the **Kibana dashboard** provides critical visibility into the cluster, including:
+
+- **Services running** – Breakdown by `kubernetes.labels.app.keyword`
+- **Pod count** – Using `unique_count(kubernetes.pod_name.keyword)`
+- **Application health checks** – Filtered by `/health` endpoint logs
+- **Scale-up/down activity** – Detecting keywords like `replicas`, `Scaled`, etc.
+
+These visualizations help assess infrastructure behavior and application performance in real time.
 
 ---
 
@@ -16,7 +31,6 @@ gigsberg-mission/
 ├── terraform/                   # EKS, VPC, IAM infra via Terraform
 ├── kibana_dashboard/            # Saved Kibana dashboards (optional)
 ├── Dockerfile                   # Containerization for Node.js app
-├── setup.sh                     # Optional automation script
 └── README.md                    # You're here!
 ```
 
