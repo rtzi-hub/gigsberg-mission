@@ -184,13 +184,13 @@ Your dashboard should include:
 
 ---
 
-## 📤 Exporting Kibana Dashboard
+## 📤 Importing Kibana Dashboard
 
 To save or share:
 
 1. Go to **Stack Management → Saved Objects**
 2. Select your dashboard
-3. Click **Export** (ensure **include related objects** is checked)
+3. Click **Import** and add the json file inside kibana-dashboard folder
 
 ---
 
