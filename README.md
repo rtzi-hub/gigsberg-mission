@@ -2,11 +2,11 @@
 
 This project demonstrates full-cycle DevOps practices using **Terraform**, **EKS**, **Helm**, **Kubernetes**, **Docker**, **Fluent Bit**, **Elasticsearch**, and **Kibana**. It deploys a containerized Node.js application to AWS EKS with observability and logging infrastructure.
 
-📅 Last Updated: March 24, 2025
+Last Updated: March 24, 2025
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 gigsberg-mission/
@@ -22,7 +22,7 @@ gigsberg-mission/
 
 ---
 
-## 🧱 1. Infrastructure Setup with Terraform
+##  1. Infrastructure Setup with Terraform
 
 ```bash
 cd terraform
@@ -31,7 +31,7 @@ terraform plan
 terraform apply --auto-approve
 ```
 
-### ✅ To destroy all resources:
+###  To destroy all resources:
 
 ```bash
 terraform destroy
@@ -39,7 +39,7 @@ terraform destroy
 
 ---
 
-## 🐳 2. Build & Push Docker Image
+##  2. Build & Push Docker Image
 
 ```bash
 docker build -t gigsberg-mission:latest .
@@ -49,7 +49,7 @@ docker push <your-dockerhub-username>/gigsberg-mission:latest
 
 ---
 
-## ☸️ 3. Connect to EKS Cluster & Deploy Application
+##  3. Connect to EKS Cluster & Deploy Application
 
 ```bash
 aws eks update-kubeconfig --name gigsberg-cluster
@@ -61,7 +61,7 @@ helm install gigsberg-app ./helm/gigsberg-app   --namespace gigsberg-app   -f he
 
 ---
 
-## 🔐 4. OIDC & IAM Setup for EBS CSI Driver
+##  4. OIDC & IAM Setup for EBS CSI Driver
 
 ### Enable OIDC Provider:
 
@@ -93,7 +93,7 @@ eksctl create addon   --cluster gigsberg-cluster   --name aws-ebs-csi-driver   -
 
 ---
 
-## 📊 5. Deploy Elasticsearch & Kibana (Logging)
+##  5. Deploy Elasticsearch & Kibana (Logging)
 
 ### Create logging namespace:
 
@@ -126,7 +126,7 @@ kubectl get secret elasticsearch-master-credentials -n logging   -o jsonpath="{.
 
 ---
 
-## 🧠 6. Install Kibana
+##  6. Install Kibana
 
 ```bash
 helm install kibana elastic/kibana   --namespace logging   --set service.type=LoadBalancer   --set elasticsearchHosts="https://elasticsearch-master:9200"
@@ -134,7 +134,7 @@ helm install kibana elastic/kibana   --namespace logging   --set service.type=Lo
 
 ---
 
-## 📦 7. Fluent Bit Log Collector
+## 7. Fluent Bit Log Collector
 
 ### Add Helm repo:
 
@@ -159,7 +159,7 @@ helm upgrade fluent-bit fluent/fluent-bit   --namespace logging   -f fluentbit/f
 
 ---
 
-## 📈 8. Kibana Dashboard Goals
+## 8. Kibana Dashboard Goals
 
 Your dashboard should include:
 
@@ -192,7 +192,7 @@ To save or share:
 
 ---
 
-## 🧪 Tested On
+## Tested On
 
 - Terraform v1.x
 - Helm v3.x
@@ -207,10 +207,6 @@ To save or share:
 For any questions or improvements, feel free to reach out via GitHub Issues or pull requests.
 
 ---
-
-**⭐ Star this project if you like it!**
-
-
 
 
 
