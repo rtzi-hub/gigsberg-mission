@@ -1,0 +1,5 @@
+apiVersion: v2
+name: gigsberg-app
+description: Node.js app for GigsBerg Mission
+version: 0.1.0
+appVersion: "1.0"

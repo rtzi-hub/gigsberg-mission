@@ -22,9 +22,9 @@ Deploy the app on ECS or EKS.
 
 Build an interface to visually display the infrastructure status, including:
 
-- Services running  
-- Task or pod counts  
-- Application health  
+- Services running
+- Task or pod counts
+- Application health
 - Visual indication of scale-up/down events (העלאה וירידה)
 
 ---
@@ -36,3 +36,6 @@ Collect all application and system logs.
 Use Elasticsearch (or AWS OpenSearch) for log storage and search.
 
 Optionally connect Kibana for visualization.
+
+
+
